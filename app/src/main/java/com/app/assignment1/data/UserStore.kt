@@ -8,6 +8,7 @@ import androidx.datastore.preferences.core.edit
 import androidx.datastore.preferences.core.stringPreferencesKey
 import androidx.datastore.preferences.preferencesDataStore
 import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 
 class UserStore(private val context: Context) {
@@ -46,6 +47,7 @@ class UserStore(private val context: Context) {
         }
     }*/
 
+    //Save
     suspend fun saveStudentId(token: String) {
         context.dataStore.edit { preferences ->
 
@@ -67,4 +69,32 @@ class UserStore(private val context: Context) {
 
         }
     }
+
+    // Load button
+    suspend fun loadUserName(): String {
+        return context.dataStore.data.map { preferences ->
+            preferences[USER_NAME_ID] ?: ""
+        }.first()
+    }
+
+    suspend fun loadEmail(): String {
+        return context.dataStore.data.map { preferences ->
+            preferences[EMAIL_KEY] ?: ""
+        }.first()
+    }
+
+    suspend fun loadStudentID(): String {
+        return context.dataStore.data.map { preferences ->
+            preferences[STUDENT_ID_KEY] ?: ""
+        }.first()
+    }
+
+    //Clear
+    /*suspend fun clearStoredValues() {
+        context.dataStore.edit { preferences ->
+            preferences.remove(USER_NAME_ID)
+            preferences.remove(EMAIL_KEY)
+            preferences.remove(STUDENT_ID_KEY)
+        }
+    }*/
 }

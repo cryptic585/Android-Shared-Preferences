@@ -5,6 +5,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
@@ -134,7 +135,57 @@ private fun Main() {
 
         Spacer(modifier = Modifier.height(30.dp))
 
-        Button(
+        Row {
+            Button(
+                onClick = {
+                    // Call the function to load stored values
+                    CoroutineScope(Dispatchers.IO).launch {
+                        val loadedUserName = store.loadUserName()
+                        val loadedEmail = store.loadEmail()
+                        val loadedStudentID = store.loadStudentID()
+
+                        // Update the mutable state variables
+                        userNameId.value = TextFieldValue(loadedUserName)
+                        emailId.value = TextFieldValue(loadedEmail)
+                        studentId.value = TextFieldValue(loadedStudentID)
+                    }
+                }
+            ) {
+                Text(text = "Load")
+            }
+
+            Button(
+                onClick = {
+                    CoroutineScope(Dispatchers.IO).launch {
+
+                        store.saveStudentId(studentId.value.text)
+                        store.saveEmailId(emailId.value.text)
+                        store.saveuserNameId(userNameId.value.text)
+
+                    }
+                }
+            ) {
+                Text(text = "Save")
+            }
+
+            /*Button(
+                onClick = {
+                    // Call the function to clear stored values
+                    CoroutineScope(Dispatchers.IO).launch {
+                        store.clearStoredValues()
+                    }
+
+                    // Clear text fields
+                    userNameId.value = TextFieldValue()
+                    emailId.value = TextFieldValue()
+                    studentId.value = TextFieldValue()
+                }
+            ) {
+                Text(text = "Clear")
+            }*/
+        }
+
+        /*Button(
             onClick = {
                 CoroutineScope(Dispatchers.IO).launch {
                     //store.saveToken(tokenValue.value.text)
@@ -145,7 +196,7 @@ private fun Main() {
             }
         ) {
             Text(text = "Save")
-        }
+        }*/
         Divider()
         Text(text="Varun Bhatt")
         Text(text="301364446")
