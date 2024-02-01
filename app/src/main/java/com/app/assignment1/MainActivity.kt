@@ -185,7 +185,7 @@ private fun Main() {
             }*/
         }
 
-        /*Button(
+        Button(
             onClick = {
                 CoroutineScope(Dispatchers.IO).launch {
                     //store.saveToken(tokenValue.value.text)
@@ -196,7 +196,7 @@ private fun Main() {
             }
         ) {
             Text(text = "Save")
-        }*/
+        }
         Divider()
         Text(text="Varun Bhatt")
         Text(text="301364446")

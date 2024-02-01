@@ -90,11 +90,11 @@ class UserStore(private val context: Context) {
     }
 
     //Clear
-    /*suspend fun clearStoredValues() {
+    suspend fun clearStoredValues() {
         context.dataStore.edit { preferences ->
             preferences.remove(USER_NAME_ID)
             preferences.remove(EMAIL_KEY)
             preferences.remove(STUDENT_ID_KEY)
         }
-    }*/
+    }
 }
