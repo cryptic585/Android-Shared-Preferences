@@ -168,7 +168,7 @@ private fun Main() {
                 Text(text = "Save")
             }
 
-            /*Button(
+            Button(
                 onClick = {
                     // Call the function to clear stored values
                     CoroutineScope(Dispatchers.IO).launch {
@@ -182,10 +182,10 @@ private fun Main() {
                 }
             ) {
                 Text(text = "Clear")
-            }*/
+            }
         }
 
-        Button(
+        /*Button(
             onClick = {
                 CoroutineScope(Dispatchers.IO).launch {
                     //store.saveToken(tokenValue.value.text)
@@ -196,7 +196,7 @@ private fun Main() {
             }
         ) {
             Text(text = "Save")
-        }
+        }*/
         Divider()
         Text(text="Varun Bhatt")
         Text(text="301364446")
