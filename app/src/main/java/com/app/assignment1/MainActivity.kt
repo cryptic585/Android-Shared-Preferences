@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -86,7 +87,7 @@ private fun Main() {
 
         Text(text = "DataStorage Example", fontWeight = FontWeight.Bold)
 
-        Spacer(modifier = Modifier.height(15.dp))
+        //Spacer(modifier = Modifier.height(15.dp))
 
         //Text(text = tokenText.value)
 
@@ -116,6 +117,7 @@ private fun Main() {
         TextField(
             value = studentId.value,
             onValueChange = { studentId.value = it },
+            label = {Text("Student ID")},
         )
 
         Spacer(modifier = Modifier.height(30.dp))
@@ -124,6 +126,7 @@ private fun Main() {
         TextField(
             value = emailId.value,
             onValueChange = { emailId.value = it },
+            label = {Text("Email ID")},
         )
 
         Spacer(modifier = Modifier.height(30.dp))
@@ -131,6 +134,7 @@ private fun Main() {
         TextField(
             value = userNameId.value,
             onValueChange = { userNameId.value = it },
+            label = {Text("User Name")},
         )
 
         Spacer(modifier = Modifier.height(30.dp))
@@ -153,7 +157,7 @@ private fun Main() {
             ) {
                 Text(text = "Load")
             }
-
+            Spacer(modifier = Modifier.width(5.dp))
             Button(
                 onClick = {
                     CoroutineScope(Dispatchers.IO).launch {
@@ -167,7 +171,7 @@ private fun Main() {
             ) {
                 Text(text = "Save")
             }
-
+            Spacer(modifier = Modifier.width(5.dp))
             Button(
                 onClick = {
                     // Call the function to clear stored values
@@ -197,6 +201,7 @@ private fun Main() {
         ) {
             Text(text = "Save")
         }*/
+        Spacer(modifier = Modifier.height(15.dp))
         Divider()
         Text(text="Varun Bhatt")
         Text(text="301364446")
