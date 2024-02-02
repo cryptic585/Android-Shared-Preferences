@@ -69,7 +69,7 @@ private fun Main() {
         mutableStateOf(TextFieldValue())
     }
     val userNameId = remember {
-        mutableStateOf(TextFieldValue())
+        mutableStateOf(TextFieldValue("446"))
     }
 
     val store = UserStore(context)
